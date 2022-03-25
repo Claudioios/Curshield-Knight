@@ -7,9 +7,10 @@
 
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-    
+        
     private var Points : SKLabelNode?
     private var Score : Int = 0
     
@@ -79,6 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var RandomSpawn : Int = 0
     private var Life : Int = 3
     private var BatUpLife : Int = 2
+    
+//    private var AudioPlayer = AVAudioPlayer()
     
     func Invulnerability3sec(){
                 Invulnerability = true
@@ -385,6 +388,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
+//        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
+//        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
+//        AudioPlayer.prepareToPlay()
+//        AudioPlayer.numberOfLoops = -1
+//        AudioPlayer.play()
+        
         self.Grass1 = self.childNode(withName: "Grass") as? SKSpriteNode
         self.Grass2 = self.childNode(withName: "Grass2") as? SKSpriteNode
         
@@ -455,7 +464,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
 //      Gestione Spawn Nemici
-        let WaitSpawn = SKAction.wait(forDuration: 3.0)
+        let WaitSpawn = SKAction.wait(forDuration: 1.0)
         let UpdateSpawn = SKAction.run(
         {
             self.SpawnEnemy()
@@ -473,9 +482,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let nodes = self.nodes(at: pos)
         let transition = SKTransition.fade(withDuration: 1)
         if nodes.contains(RetryButton!) {
-                let scene = SKScene(fileNamed: "GameScene")
-                scene?.scaleMode = .aspectFill
-                self.view?.presentScene(scene!,transition: transition)
+//            AudioPlayer.stop()
+            print("ciao")
+            let scene = SKScene(fileNamed: "GameScene")
+            scene?.scaleMode = .aspectFill
+            self.view?.presentScene(scene!,transition: transition)
 
         }
     }

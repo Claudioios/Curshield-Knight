@@ -16,6 +16,7 @@
 		6610C9C427E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */; };
 		6610C9CE27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */; };
 		6610C9D027E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */; };
+		66389D5E27EDCB9400C34BC7 /* CurshieldKnight.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 66389D5D27EDCB9400C34BC7 /* CurshieldKnight.mp3 */; };
 		66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB127EB3BAD00DD24B7 /* Main.storyboard */; };
 		66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */; };
 		66A4719B27E9EB3A00ACB3BA /* StartMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */; };
@@ -52,6 +53,7 @@
 		6610C9C927E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shield Knight - The Cursed ArtifactUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactUITests.swift"; sourceTree = "<group>"; };
 		6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		66389D5D27EDCB9400C34BC7 /* CurshieldKnight.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = CurshieldKnight.mp3; sourceTree = "<group>"; };
 		66973BB127EB3BAD00DD24B7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenu.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 				66A4719C27E9EC1A00ACB3BA /* StartMenu.sks */,
 				66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */,
 				66973BB127EB3BAD00DD24B7 /* Main.storyboard */,
+				66389D5D27EDCB9400C34BC7 /* CurshieldKnight.mp3 */,
 				6610C9B627E890AC0076FBB6 /* Assets.xcassets */,
 			);
 			path = "Shield Knight - The Cursed Artifact";
@@ -247,6 +250,7 @@
 				66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */,
 				6610C9B727E890AC0076FBB6 /* Assets.xcassets in Resources */,
 				6610C9AE27E890AB0076FBB6 /* Actions.sks in Resources */,
+				66389D5E27EDCB9400C34BC7 /* CurshieldKnight.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

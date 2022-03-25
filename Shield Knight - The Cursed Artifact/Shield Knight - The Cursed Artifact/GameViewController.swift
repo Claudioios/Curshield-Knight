@@ -8,11 +8,21 @@
 import UIKit
 import SpriteKit
 import GameplayKit
+import AVFoundation
 
 class GameViewController: UIViewController {
 
+//    var AudioPlayer = AVAudioPlayer()
+
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
+//        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
+//        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
+//        AudioPlayer.prepareToPlay()
+//        AudioPlayer.numberOfLoops = -1
+//        AudioPlayer.play()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
