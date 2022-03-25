@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6610C9AA27E890AB0076FBB6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9A927E890AB0076FBB6 /* AppDelegate.swift */; };
+		6610C9AC27E890AB0076FBB6 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6610C9AB27E890AB0076FBB6 /* GameScene.sks */; };
+		6610C9AE27E890AB0076FBB6 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 6610C9AD27E890AB0076FBB6 /* Actions.sks */; };
+		6610C9B027E890AB0076FBB6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9AF27E890AB0076FBB6 /* GameScene.swift */; };
+		6610C9B227E890AB0076FBB6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9B127E890AB0076FBB6 /* GameViewController.swift */; };
+		6610C9B727E890AC0076FBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6610C9B627E890AC0076FBB6 /* Assets.xcassets */; };
+		6610C9C427E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */; };
+		6610C9CE27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */; };
+		6610C9D027E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */; };
+		66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB127EB3BAD00DD24B7 /* Main.storyboard */; };
+		66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */; };
+		66A4719B27E9EB3A00ACB3BA /* StartMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */; };
+		66A4719D27E9EC1A00ACB3BA /* StartMenu.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66A4719C27E9EC1A00ACB3BA /* StartMenu.sks */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		6610C9C027E890AD0076FBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6610C99E27E890AA0076FBB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6610C9A527E890AA0076FBB6;
+			remoteInfo = "Shield Knight - The Cursed Artifact";
+		};
+		6610C9CA27E890AD0076FBB6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6610C99E27E890AA0076FBB6 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 6610C9A527E890AA0076FBB6;
+			remoteInfo = "Shield Knight - The Cursed Artifact";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		6610C9A627E890AB0076FBB6 /* Shield Knight - The Cursed Artifact.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shield Knight - The Cursed Artifact.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6610C9A927E890AB0076FBB6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		6610C9AB27E890AB0076FBB6 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		6610C9AD27E890AB0076FBB6 /* Actions.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Actions.sks; sourceTree = "<group>"; };
+		6610C9AF27E890AB0076FBB6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		6610C9B127E890AB0076FBB6 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		6610C9B627E890AC0076FBB6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		6610C9BF27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shield Knight - The Cursed ArtifactTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactTests.swift"; sourceTree = "<group>"; };
+		6610C9C927E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shield Knight - The Cursed ArtifactUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactUITests.swift"; sourceTree = "<group>"; };
+		6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		66973BB127EB3BAD00DD24B7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenu.swift; sourceTree = "<group>"; };
+		66A4719C27E9EC1A00ACB3BA /* StartMenu.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = StartMenu.sks; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6610C9A327E890AA0076FBB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6610C9BC27E890AD0076FBB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6610C9C627E890AD0076FBB6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6610C99D27E890AA0076FBB6 = {
+			isa = PBXGroup;
+			children = (
+				6610C9A827E890AB0076FBB6 /* Shield Knight - The Cursed Artifact */,
+				6610C9C227E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests */,
+				6610C9CC27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests */,
+				6610C9A727E890AB0076FBB6 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6610C9A727E890AB0076FBB6 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6610C9A627E890AB0076FBB6 /* Shield Knight - The Cursed Artifact.app */,
+				6610C9BF27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests.xctest */,
+				6610C9C927E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6610C9A827E890AB0076FBB6 /* Shield Knight - The Cursed Artifact */ = {
+			isa = PBXGroup;
+			children = (
+				6610C9A927E890AB0076FBB6 /* AppDelegate.swift */,
+				6610C9AB27E890AB0076FBB6 /* GameScene.sks */,
+				6610C9AD27E890AB0076FBB6 /* Actions.sks */,
+				6610C9AF27E890AB0076FBB6 /* GameScene.swift */,
+				6610C9B127E890AB0076FBB6 /* GameViewController.swift */,
+				66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */,
+				66A4719C27E9EC1A00ACB3BA /* StartMenu.sks */,
+				66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */,
+				66973BB127EB3BAD00DD24B7 /* Main.storyboard */,
+				6610C9B627E890AC0076FBB6 /* Assets.xcassets */,
+			);
+			path = "Shield Knight - The Cursed Artifact";
+			sourceTree = "<group>";
+		};
+		6610C9C227E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests */ = {
+			isa = PBXGroup;
+			children = (
+				6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */,
+			);
+			path = "Shield Knight - The Cursed ArtifactTests";
+			sourceTree = "<group>";
+		};
+		6610C9CC27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests */ = {
+			isa = PBXGroup;
+			children = (
+				6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */,
+				6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */,
+			);
+			path = "Shield Knight - The Cursed ArtifactUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6610C9A527E890AA0076FBB6 /* Shield Knight - The Cursed Artifact */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6610C9D327E890AD0076FBB6 /* Build configuration list for PBXNativeTarget "Shield Knight - The Cursed Artifact" */;
+			buildPhases = (
+				6610C9A227E890AA0076FBB6 /* Sources */,
+				6610C9A327E890AA0076FBB6 /* Frameworks */,
+				6610C9A427E890AA0076FBB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shield Knight - The Cursed Artifact";
+			productName = "Shield Knight - The Cursed Artifact";
+			productReference = 6610C9A627E890AB0076FBB6 /* Shield Knight - The Cursed Artifact.app */;
+			productType = "com.apple.product-type.application";
+		};
+		6610C9BE27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6610C9D627E890AD0076FBB6 /* Build configuration list for PBXNativeTarget "Shield Knight - The Cursed ArtifactTests" */;
+			buildPhases = (
+				6610C9BB27E890AD0076FBB6 /* Sources */,
+				6610C9BC27E890AD0076FBB6 /* Frameworks */,
+				6610C9BD27E890AD0076FBB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6610C9C127E890AD0076FBB6 /* PBXTargetDependency */,
+			);
+			name = "Shield Knight - The Cursed ArtifactTests";
+			productName = "Shield Knight - The Cursed ArtifactTests";
+			productReference = 6610C9BF27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		6610C9C827E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6610C9D927E890AD0076FBB6 /* Build configuration list for PBXNativeTarget "Shield Knight - The Cursed ArtifactUITests" */;
+			buildPhases = (
+				6610C9C527E890AD0076FBB6 /* Sources */,
+				6610C9C627E890AD0076FBB6 /* Frameworks */,
+				6610C9C727E890AD0076FBB6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				6610C9CB27E890AD0076FBB6 /* PBXTargetDependency */,
+			);
+			name = "Shield Knight - The Cursed ArtifactUITests";
+			productName = "Shield Knight - The Cursed ArtifactUITests";
+			productReference = 6610C9C927E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6610C99E27E890AA0076FBB6 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					6610C9A527E890AA0076FBB6 = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+					6610C9BE27E890AD0076FBB6 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 6610C9A527E890AA0076FBB6;
+					};
+					6610C9C827E890AD0076FBB6 = {
+						CreatedOnToolsVersion = 13.2.1;
+						TestTargetID = 6610C9A527E890AA0076FBB6;
+					};
+				};
+			};
+			buildConfigurationList = 6610C9A127E890AA0076FBB6 /* Build configuration list for PBXProject "Shield Knight - The Cursed Artifact" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 6610C99D27E890AA0076FBB6;
+			productRefGroup = 6610C9A727E890AB0076FBB6 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6610C9A527E890AA0076FBB6 /* Shield Knight - The Cursed Artifact */,
+				6610C9BE27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests */,
+				6610C9C827E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6610C9A427E890AA0076FBB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				66A4719D27E9EC1A00ACB3BA /* StartMenu.sks in Resources */,
+				6610C9AC27E890AB0076FBB6 /* GameScene.sks in Resources */,
+				66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */,
+				66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */,
+				6610C9B727E890AC0076FBB6 /* Assets.xcassets in Resources */,
+				6610C9AE27E890AB0076FBB6 /* Actions.sks in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6610C9BD27E890AD0076FBB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6610C9C727E890AD0076FBB6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6610C9A227E890AA0076FBB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6610C9B027E890AB0076FBB6 /* GameScene.swift in Sources */,
+				66A4719B27E9EB3A00ACB3BA /* StartMenu.swift in Sources */,
+				6610C9B227E890AB0076FBB6 /* GameViewController.swift in Sources */,
+				6610C9AA27E890AB0076FBB6 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6610C9BB27E890AD0076FBB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6610C9C427E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6610C9C527E890AD0076FBB6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6610C9D027E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift in Sources */,
+				6610C9CE27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		6610C9C127E890AD0076FBB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6610C9A527E890AA0076FBB6 /* Shield Knight - The Cursed Artifact */;
+			targetProxy = 6610C9C027E890AD0076FBB6 /* PBXContainerItemProxy */;
+		};
+		6610C9CB27E890AD0076FBB6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 6610C9A527E890AA0076FBB6 /* Shield Knight - The Cursed Artifact */;
+			targetProxy = 6610C9CA27E890AD0076FBB6 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		6610C9D127E890AD0076FBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		6610C9D227E890AD0076FBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6610C9D427E890AD0076FBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = BWUQ8K9QZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CurshieldKnight;
+				PRODUCT_NAME = "Shield Knight - The Cursed Artifact";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		6610C9D527E890AD0076FBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = BWUQ8K9QZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = CurshieldKnight;
+				PRODUCT_NAME = "Shield Knight - The Cursed Artifact";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		6610C9D727E890AD0076FBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BWUQ8K9QZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Claudio.Shield-Knight---The-Cursed-ArtifactTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shield Knight - The Cursed Artifact.app/Shield Knight - The Cursed Artifact";
+			};
+			name = Debug;
+		};
+		6610C9D827E890AD0076FBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BWUQ8K9QZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Claudio.Shield-Knight---The-Cursed-ArtifactTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Shield Knight - The Cursed Artifact.app/Shield Knight - The Cursed Artifact";
+			};
+			name = Release;
+		};
+		6610C9DA27E890AD0076FBB6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BWUQ8K9QZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Claudio.Shield-Knight---The-Cursed-ArtifactUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Shield Knight - The Cursed Artifact";
+			};
+			name = Debug;
+		};
+		6610C9DB27E890AD0076FBB6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = BWUQ8K9QZU;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Claudio.Shield-Knight---The-Cursed-ArtifactUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Shield Knight - The Cursed Artifact";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6610C9A127E890AA0076FBB6 /* Build configuration list for PBXProject "Shield Knight - The Cursed Artifact" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6610C9D127E890AD0076FBB6 /* Debug */,
+				6610C9D227E890AD0076FBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6610C9D327E890AD0076FBB6 /* Build configuration list for PBXNativeTarget "Shield Knight - The Cursed Artifact" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6610C9D427E890AD0076FBB6 /* Debug */,
+				6610C9D527E890AD0076FBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6610C9D627E890AD0076FBB6 /* Build configuration list for PBXNativeTarget "Shield Knight - The Cursed ArtifactTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6610C9D727E890AD0076FBB6 /* Debug */,
+				6610C9D827E890AD0076FBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6610C9D927E890AD0076FBB6 /* Build configuration list for PBXNativeTarget "Shield Knight - The Cursed ArtifactUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6610C9DA27E890AD0076FBB6 /* Debug */,
+				6610C9DB27E890AD0076FBB6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6610C99E27E890AA0076FBB6 /* Project object */;
+}
