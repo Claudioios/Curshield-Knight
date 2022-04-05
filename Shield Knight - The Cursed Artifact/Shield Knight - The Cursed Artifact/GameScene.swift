@@ -11,6 +11,12 @@ import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
         
+    private var GoblinEffect : SKEmitterNode?
+    
+    private var SpawnAction = SKNode()
+    
+    private var i = 0
+    private var EnemyThatSpawned = 0
     private var Points : SKLabelNode?
     private var Score : Int = 0
     
@@ -24,13 +30,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var GoblinRightAttack: [SKTexture] = []
     
     private var HeroWalk: [SKTexture] = []
-    private var BatFly: [SKTexture] = []
+//    private var BatFly: [SKTexture] = []
 
     private var GoblinLeftAttackGif: SKAction?
     private var GoblinRightAttackGif: SKAction?
     
     private var HeroWalkGif: SKAction?
-    private var BatFlyGif: SKAction?
+//    private var BatFlyGif: SKAction?
 
     private var BatLeft : SKSpriteNode?
     private var BatUp : SKSpriteNode?
@@ -61,6 +67,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var HighScoreGameOver : SKSpriteNode?
     private var PointsGameOver : SKLabelNode?
     
+    private var SkyCloud1 : SKSpriteNode?
+    private var SkyCloud2 : SKSpriteNode?
     private var Grass1 : SKSpriteNode?
     private var Grass2 : SKSpriteNode?
     private var Home1 : SKSpriteNode?
@@ -81,10 +89,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var Life : Int = 3
     private var BatUpLife : Int = 2
     
-//    private var AudioPlayer = AVAudioPlayer()
+    private var AudioPlayer = AVAudioPlayer()
     
     func Invulnerability3sec(){
-                Invulnerability = true
+        Invulnerability = true
+        Hero?.alpha = 0.0
+        Shield?.alpha = 0.0
+        
+        let BlinkAcceso = SKAction.fadeAlpha(to: 1.0, duration: 0.1)
+        let BlinkSpento = SKAction.fadeAlpha(to: 0.0, duration: 0.1)
+        let BlinkAction = SKAction.sequence([BlinkSpento,BlinkAcceso])
+        let RepeatAction = SKAction.repeat(BlinkAction, count: 10)
+        Hero?.run(RepeatAction)
+        Shield?.run(RepeatAction)
+        
         let WaitInvulnerability = SKAction.wait(forDuration: 2.0)
                 let UpdateInvulnerability = SKAction.run(
                 {
@@ -95,13 +113,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 run(InvulnerabilityAction)
     }
     
-    func BatUpEndlessFly(){
-        for i in 0...2 {
-            BatFly.append(SKTexture(imageNamed: "BatUp\(i)"));
-        }
-        BatFlyGif = SKAction.animate(with: BatFly, timePerFrame: 0.3)
-        BatUp?.run(SKAction.repeatForever(BatFlyGif!))
-    }
+//    func BatUpEndlessFly(){
+//        for i in 0...2 {
+//            BatFly.append(SKTexture(imageNamed: "BatUp\(i)"));
+//        }
+//        BatFlyGif = SKAction.animate(with: BatFly, timePerFrame: 0.3)
+//        BatUp?.run(SKAction.repeatForever(BatFlyGif!))
+//    }
     
     func EndlessWalk(){
         for i in 0...3 {
@@ -126,6 +144,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         GoblinRightAttackGif = SKAction.animate(with: GoblinRightAttack, timePerFrame: 0.3)
         GoblinRight?.run(SKAction.repeatForever(GoblinRightAttackGif!))
+    }
+    
+    func SkyCloudParallax(){
+
+        let moveLeft = SKAction.moveBy(x: -1334, y: 0, duration: 20)
+        let moveReset = SKAction.moveBy(x: 1334, y: 0, duration: 0)
+        let moveLoop = SKAction.sequence([moveLeft, moveReset])
+        let moveForever = SKAction.repeatForever(moveLoop)
+
+        SkyCloud1?.run(moveForever)
+        SkyCloud2?.run(moveForever)
+        
     }
     
     func GrassParallax(){
@@ -191,20 +221,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func GameOver(){
         IsGameOver = true
         
-        Grass1?.isPaused = true
-        Grass2?.isPaused = true
-        Home1?.isPaused = true
-        Home2?.isPaused = true
-        Mount1?.isPaused = true
-        Mount2?.isPaused = true
-        Mountains1?.isPaused = true
-        Mountains2?.isPaused = true
-        Tree1?.isPaused = true
-        Tree2?.isPaused = true
-        Hero?.isPaused = true
-        GoblinRight?.isPaused = true
-        GoblinLeft?.isPaused = true
-        BatUp?.isPaused = true
+//        Grass1?.isPaused = true
+//        Grass2?.isPaused = true
+//        Home1?.isPaused = true
+//        Home2?.isPaused = true
+//        Mount1?.isPaused = true
+//        Mount2?.isPaused = true
+//        Mountains1?.isPaused = true
+//        Mountains2?.isPaused = true
+//        Tree1?.isPaused = true
+//        Tree2?.isPaused = true
+//        Hero?.isPaused = true
+//        GoblinRight?.isPaused = true
+//        GoblinLeft?.isPaused = true
+//        BatUp?.isPaused = true
+        self.isPaused = true
         
         BackgroundGameOver?.isHidden = false
         BackgroundGameOver?.zPosition = 3
@@ -214,10 +245,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         GameOverLabel?.zPosition = 4
         GameOverLabel?.position = CGPoint(x: 0, y: 180)
-        
+
         RetryButton?.zPosition = 4
         RetryButton?.position = CGPoint(x: 0, y: -180)
-        
+
         HighScoreGameOver?.zPosition = 4
         HighScoreGameOver?.position = CGPoint(x: -160, y: 0)
 
@@ -226,6 +257,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         PointsGameOver?.text = "\(Score)"
         
         
+    }
+    
+    func DifficultyController (){
+        switch EnemyThatSpawned {
+
+                    case 0...1:
+                        SpawnAction.speed = 1
+                        print("Livello 1")
+                    case 2...3:
+                        SpawnAction.speed = 1.25
+                        print("Livello 2")
+                    case 4...6:
+                        SpawnAction.speed = 1.65
+                        print("Livello 3")
+                    case 7...10:
+                        SpawnAction.speed = 2.5
+                        print("Livello 4")
+                    case 11...18:
+                        SpawnAction.speed = 5
+                        print("Livello 5")
+                    case 19...:
+                        SpawnAction.speed = 10
+                        print("Livello 6")
+
+                    default:
+                        return
+            }
+        EnemyThatSpawned = EnemyThatSpawned + 1
     }
     
     func NewScore(){
@@ -302,80 +361,83 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func SpawnEnemy(){
         isSpawned = false
-        while (isSpawned == false)
+        if (SpawnedBatLeft == false || SpawnedBatUp == false || SpawnedBatRight == false || SpawnedGoblinLeft == false || SpawnedGoblinRight == false)
         {
-            RandomSpawn = Int.random(in: 0..<5)
-            if (RandomSpawn == 0 && SpawnedBatLeft == false)
+            while (isSpawned == false)
             {
-                self.BatLeft = self.childNode(withName: "BatLeft") as? SKSpriteNode
-                BatLeft?.isHidden = false
-                BatLeft?.position.x = -717
-                BatLeft?.position.y = 425
-                SpawnedBatLeft = true
-                isSpawned = true
-            }
-            else
-            {
-                if (RandomSpawn == 1 && SpawnedBatUp == false)
+                RandomSpawn = Int.random(in: 0..<5)
+                if (RandomSpawn == 0 && SpawnedBatLeft == false)
                 {
-                    self.BatUp = self.childNode(withName: "BatUp") as? SKSpriteNode
-                    BatUp?.isHidden = false
-                    BatUp?.position.x = 0
-                    BatUp?.position.y = 425
-                    BatUpLife = 2
-                    SpawnedBatUp = true
+                    self.BatLeft = self.childNode(withName: "BatLeft") as? SKSpriteNode
+                    BatLeft?.isHidden = false
+                    BatLeft?.position.x = -717
+                    BatLeft?.position.y = 425
+                    SpawnedBatLeft = true
                     isSpawned = true
-
                 }
                 else
                 {
-                    if (RandomSpawn == 2 && SpawnedBatRight == false)
+                    if (RandomSpawn == 1 && SpawnedBatUp == false)
                     {
-                        
-                        self.BatRight = self.childNode(withName: "BatRight") as? SKSpriteNode
-                        BatRight?.isHidden = false
-                        BatRight?.position.x = 717
-                        BatRight?.position.y = 425
-                        SpawnedBatRight = true
+                        self.BatUp = self.childNode(withName: "BatUp") as? SKSpriteNode
+                        BatUp?.isHidden = false
+                        BatUp?.position.x = 0
+                        BatUp?.position.y = 425
+                        BatUpLife = 2
+                        SpawnedBatUp = true
                         isSpawned = true
-
+                        
                     }
                     else
                     {
-                        if (RandomSpawn == 3 && SpawnedGoblinLeft == false)
+                        if (RandomSpawn == 2 && SpawnedBatRight == false)
                         {
-                            GoblinLeft = SKSpriteNode(texture: SKTexture(imageNamed: "GoblinLeftAttack0"), size: CGSize(width: 81, height: 114))
-                            GoblinLeft?.isHidden = false
-                            GoblinLeft?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: GoblinLeft!.size.width, height: GoblinLeft!.size.height))
-                            GoblinLeft?.name = "GoblinLeft"
-                            GoblinLeft?.physicsBody?.affectedByGravity = false
-                            GoblinLeft?.physicsBody?.isDynamic = true
-                            GoblinLeft?.physicsBody!.contactTestBitMask = (GoblinLeft?.physicsBody!.collisionBitMask)!
-                            GoblinLeft?.position.x = -717
-                            GoblinLeft?.position.y = -190
-                            SpawnedGoblinLeft = true
+                            
+                            self.BatRight = self.childNode(withName: "BatRight") as? SKSpriteNode
+                            BatRight?.isHidden = false
+                            BatRight?.position.x = 717
+                            BatRight?.position.y = 425
+                            SpawnedBatRight = true
                             isSpawned = true
-                            addChild(GoblinLeft!)
-                            EndlessGoblinAttackLeft()
+                            
                         }
                         else
                         {
-                            if (RandomSpawn == 4 && SpawnedGoblinRight == false)
+                            if (RandomSpawn == 3 && SpawnedGoblinLeft == false)
                             {
-                                GoblinRight = SKSpriteNode(texture: SKTexture(imageNamed: "GoblinRightAttack0"), size: CGSize(width: 81, height: 114))
-                                GoblinRight?.isHidden = false
-                                GoblinRight?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: GoblinRight!.size.width, height: GoblinRight!.size.height))
-                                GoblinRight?.name = "GoblinRight"
-                                //                        self.GoblinLeft = self.childNode(withName: "GoblinLeft") as? SKSpriteNode
-                                GoblinRight?.physicsBody?.affectedByGravity = false
-                                GoblinRight?.physicsBody?.isDynamic = true
-                                GoblinRight?.physicsBody!.contactTestBitMask = (GoblinRight?.physicsBody!.collisionBitMask)!
-                                GoblinRight?.position.x = 717
-                                GoblinRight?.position.y = -190
-                                SpawnedGoblinRight = true
+                                GoblinLeft = SKSpriteNode(texture: SKTexture(imageNamed: "GoblinLeftAttack0"), size: CGSize(width: 81, height: 114))
+                                GoblinLeft?.isHidden = false
+                                GoblinLeft?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: GoblinLeft!.size.width, height: GoblinLeft!.size.height))
+                                GoblinLeft?.name = "GoblinLeft"
+                                GoblinLeft?.physicsBody?.affectedByGravity = false
+                                GoblinLeft?.physicsBody?.isDynamic = true
+                                GoblinLeft?.physicsBody!.contactTestBitMask = (GoblinLeft?.physicsBody!.collisionBitMask)!
+                                GoblinLeft?.position.x = -717
+                                GoblinLeft?.position.y = -190
+                                SpawnedGoblinLeft = true
                                 isSpawned = true
-                                addChild(GoblinRight!)
-                                EndlessGoblinAttackRight()
+                                addChild(GoblinLeft!)
+                                EndlessGoblinAttackLeft()
+                            }
+                            else
+                            {
+                                if (RandomSpawn == 4 && SpawnedGoblinRight == false)
+                                {
+                                    GoblinRight = SKSpriteNode(texture: SKTexture(imageNamed: "GoblinRightAttack0"), size: CGSize(width: 81, height: 114))
+                                    GoblinRight?.isHidden = false
+                                    GoblinRight?.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: GoblinRight!.size.width, height: GoblinRight!.size.height))
+                                    GoblinRight?.name = "GoblinRight"
+                                    //                        self.GoblinLeft = self.childNode(withName: "GoblinLeft") as? SKSpriteNode
+                                    GoblinRight?.physicsBody?.affectedByGravity = false
+                                    GoblinRight?.physicsBody?.isDynamic = true
+                                    GoblinRight?.physicsBody!.contactTestBitMask = (GoblinRight?.physicsBody!.collisionBitMask)!
+                                    GoblinRight?.position.x = 717
+                                    GoblinRight?.position.y = -190
+                                    SpawnedGoblinRight = true
+                                    isSpawned = true
+                                    addChild(GoblinRight!)
+                                    EndlessGoblinAttackRight()
+                                }
                             }
                         }
                     }
@@ -388,11 +450,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
-//        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
-//        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
-//        AudioPlayer.prepareToPlay()
-//        AudioPlayer.numberOfLoops = -1
-//        AudioPlayer.play()
+//        GoblinEffect = SKEmitterNode(fileNamed: "GoblinDeath.sks")
+//        self.addChild(GoblinEffect!)
+        
+        let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
+        AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
+        AudioPlayer.prepareToPlay()
+        AudioPlayer.numberOfLoops = -1
+        AudioPlayer.play()
+        
+        self.SkyCloud1 = self.childNode(withName: "SkyCloud") as? SKSpriteNode
+        self.SkyCloud2 = self.childNode(withName: "SkyCloud2") as? SKSpriteNode
+        
+        SkyCloudParallax()
         
         self.Grass1 = self.childNode(withName: "Grass") as? SKSpriteNode
         self.Grass2 = self.childNode(withName: "Grass2") as? SKSpriteNode
@@ -428,7 +498,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         Hero?.physicsBody!.contactTestBitMask = (Hero?.physicsBody!.collisionBitMask)!
         
         EndlessWalk()
-        BatUpEndlessFly()
 
         self.Shield = self.childNode(withName: "Shield") as? SKSpriteNode
         Shield?.physicsBody!.contactTestBitMask = (Shield?.physicsBody!.collisionBitMask)!
@@ -437,6 +506,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.physicsWorld.add(Joint)
 
+        //        BatUpEndlessFly()
         self.BackgroundGameOver = self.childNode(withName: "BackgroundGameOver") as? SKSpriteNode
         self.BackgroundGameOver?.isHidden = true
         
@@ -464,45 +534,56 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         
 //      Gestione Spawn Nemici
-        let WaitSpawn = SKAction.wait(forDuration: 1.0)
+        let WaitSpawn = SKAction.wait(forDuration: 5.0)
         let UpdateSpawn = SKAction.run(
         {
             self.SpawnEnemy()
+            self.DifficultyController()
         }
         )
         let SeqSpawn = SKAction.sequence([WaitSpawn,UpdateSpawn])
         let RepeatSpawn = SKAction.repeatForever(SeqSpawn)
-        run(RepeatSpawn)
-        
+        SpawnAction.run(RepeatSpawn)
+        addChild(SpawnAction)
+        print(SpawnAction.speed)
     }
     
     
     func touchDown(atPoint pos : CGPoint) {
 
-        let nodes = self.nodes(at: pos)
+//        let nodes = self.nodes(at: pos)
+//        let transition = SKTransition.fade(withDuration: 1)
+//        if nodes.contains(RetryButton!) {
+////          AudioPlayer.stop()
+//            let scene = SKScene(fileNamed: "GameScene")
+//            scene?.scaleMode = .aspectFill
+//            self.view?.presentScene(scene!,transition: transition)
+
+//        }
+    }
+    
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        let location = touches.first!.location(in: scene!)
+        let node = scene?.atPoint(location)
+        if (IsGameOver == false)
+        {
+            if (location.x > 0){
+                print("Right Touch")
+            }else
+            {
+                print("Left Touch")
+            }
+        }
         let transition = SKTransition.fade(withDuration: 1)
-        if nodes.contains(RetryButton!) {
-//            AudioPlayer.stop()
-            print("ciao")
+        if (node!.name == RetryButton?.name!) {
+            AudioPlayer.stop()
             let scene = SKScene(fileNamed: "GameScene")
             scene?.scaleMode = .aspectFill
             self.view?.presentScene(scene!,transition: transition)
-
         }
-    }
-    
-    func touchMoved(toPoint pos : CGPoint) {
-
-    }
-    
-    func touchUp(atPoint pos : CGPoint) {
-
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
-        
-        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
+        //        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -517,90 +598,90 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for t in touches { self.touchUp(atPoint: t.location(in: self)) }
     }
     
     
     override func update(_ currentTime: TimeInterval) {
         
+//        GoblinEffect?.position = GoblinRight?.position ?? CGPoint(x: 2000, y: 2000)
+        
         if (IsGameOver == false)
         {
-        if (SpawnedBatUp == true)
-        {
-            if (BatUp?.position.y != 160)
+            if (SpawnedBatUp == true)
             {
-                BatUp?.position.y = (BatUp?.position.y)! - 5
-            }
-            else
-            {
-                BatShootUp()
-            }
-        }
-        if (SpawnedBatLeft == true)
-        {
-            if (BatLeft?.position.y != 125)
-            {
-                BatLeft?.position.y = (BatLeft?.position.y)! - 5
-                BatLeft?.position.x = (BatLeft?.position.x)! + 3
-            }
-            else
-            {
-                BatShootLeft()
-            }
-            
-        }
-        if (SpawnedBatRight == true)
-        {
-            if (BatRight?.position.y != 125)
-            {
-                BatRight?.position.y = (BatRight?.position.y)! - 5
-                BatRight?.position.x = (BatRight?.position.x)! - 3
-            }
-            else
-            {
-                BatShootRight()
-            }
-        }
-        if (SpawnedGoblinLeft == true)
-        {
-            if (GoblinLeft?.position.x != -217)
-            {
-                GoblinLeft?.position.x = (GoblinLeft?.position.x)! + 5
-            }
-        }
-        if (SpawnedGoblinRight == true)
-        {
-            if (GoblinRight?.position.x != 217)
-            {
-                GoblinRight?.position.x = (GoblinRight?.position.x)! - 5
-            }
-
-        }
-        
-        if (Life == 2)
-        {
-            Life3?.texture = SKTexture(imageNamed: "LifeLose")
-        }
-        else
-        {
-            if (Life == 1)
-            {
-                Life2?.texture = SKTexture(imageNamed: "LifeLose")
-            }
-            else
-            {
-                if (Life <= 0)
+                if (BatUp?.position.y != 160)
                 {
-                    Life1?.texture = SKTexture(imageNamed: "LifeLose")
-                    GameOver()
-                
+                    BatUp?.position.y = (BatUp?.position.y)! - 5
+                }
+                else
+                {
+                    BatShootUp()
                 }
             }
-        }
+            if (SpawnedBatLeft == true)
+            {
+                if (BatLeft?.position.y != 125)
+                {
+                    BatLeft?.position.y = (BatLeft?.position.y)! - 5
+                    BatLeft?.position.x = (BatLeft?.position.x)! + 3
+                }
+                else
+                {
+                    BatShootLeft()
+                }
+                
+            }
+            if (SpawnedBatRight == true)
+            {
+                if (BatRight?.position.y != 125)
+                {
+                    BatRight?.position.y = (BatRight?.position.y)! - 5
+                    BatRight?.position.x = (BatRight?.position.x)! - 3
+                }
+                else
+                {
+                    BatShootRight()
+                }
+            }
+            if (SpawnedGoblinLeft == true)
+            {
+                if (GoblinLeft?.position.x != -217)
+                {
+                    GoblinLeft?.position.x = (GoblinLeft?.position.x)! + 5
+                }
+            }
+            if (SpawnedGoblinRight == true)
+            {
+                if (GoblinRight?.position.x != 217)
+                {
+                    GoblinRight?.position.x = (GoblinRight?.position.x)! - 5
+                }
+
+            }
+            
+            if (Life == 2)
+            {
+                Life3?.texture = SKTexture(imageNamed: "LifeLose")
+            }
+            else
+            {
+                if (Life == 1)
+                {
+                    Life2?.texture = SKTexture(imageNamed: "LifeLose")
+                }
+                else
+                {
+                    if (Life <= 0)
+                    {
+                        Life1?.texture = SKTexture(imageNamed: "LifeLose")
+                        GameOver()
+                    
+                    }
+                }
+            }
         }
     }
     

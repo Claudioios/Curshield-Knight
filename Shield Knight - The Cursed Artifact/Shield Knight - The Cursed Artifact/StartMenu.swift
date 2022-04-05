@@ -34,12 +34,11 @@ class StartMenu: SKScene {
         let nodes = self.nodes(at: pos)
         let transition = SKTransition.fade(withDuration: 1)
 
-        if nodes.contains(StartButton!) {
-                let scene = SKScene(fileNamed: "GameScene")
-                scene?.scaleMode = .aspectFill
-                self.view?.presentScene(scene!,transition: transition)
+        let scene = SKScene(fileNamed: "GameScene")
+        scene?.scaleMode = .aspectFill
+        self.view?.presentScene(scene!,transition: transition)
 
-        }
+        
 
         
     }
