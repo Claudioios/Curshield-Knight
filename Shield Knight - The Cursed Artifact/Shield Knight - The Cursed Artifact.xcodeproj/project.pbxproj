@@ -14,10 +14,11 @@
 		6610C9B027E890AB0076FBB6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9AF27E890AB0076FBB6 /* GameScene.swift */; };
 		6610C9B227E890AB0076FBB6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9B127E890AB0076FBB6 /* GameViewController.swift */; };
 		6610C9B727E890AC0076FBB6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6610C9B627E890AC0076FBB6 /* Assets.xcassets */; };
-		6610C9C427E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */; };
 		6610C9CE27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */; };
 		6610C9D027E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */; };
 		66411EE927FC52C3000AE2D9 /* GoblinDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */; };
+		665B14B127FDA23100D9B42A /* BatDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 665B14B027FDA23000D9B42A /* BatDeath.sks */; };
+		665B14B227FDD31700D9B42A /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */; };
 		66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB127EB3BAD00DD24B7 /* Main.storyboard */; };
 		66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */; };
 		66A4719B27E9EB3A00ACB3BA /* StartMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */; };
@@ -55,7 +56,9 @@
 		6610C9C927E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shield Knight - The Cursed ArtifactUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactUITests.swift"; sourceTree = "<group>"; };
 		6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift"; sourceTree = "<group>"; };
+		663EDC6627FEF55000F157F8 /* nokiafc22.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nokiafc22.ttf; sourceTree = "<group>"; };
 		66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GoblinDeath.sks; sourceTree = "<group>"; };
+		665B14B027FDA23000D9B42A /* BatDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BatDeath.sks; sourceTree = "<group>"; };
 		66973BB127EB3BAD00DD24B7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenu.swift; sourceTree = "<group>"; };
@@ -116,10 +119,12 @@
 				6610C9AF27E890AB0076FBB6 /* GameScene.swift */,
 				6610C9B127E890AB0076FBB6 /* GameViewController.swift */,
 				66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */,
+				665B14B027FDA23000D9B42A /* BatDeath.sks */,
 				66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */,
 				66A4719C27E9EC1A00ACB3BA /* StartMenu.sks */,
 				66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */,
 				66973BB127EB3BAD00DD24B7 /* Main.storyboard */,
+				663EDC6627FEF55000F157F8 /* nokiafc22.ttf */,
 				6610C9B627E890AC0076FBB6 /* Assets.xcassets */,
 				660161F127F8366200B59074 /* CurshieldKnight.mp3 */,
 			);
@@ -129,7 +134,6 @@
 		6610C9C227E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests */ = {
 			isa = PBXGroup;
 			children = (
-				6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */,
 			);
 			path = "Shield Knight - The Cursed ArtifactTests";
 			sourceTree = "<group>";
@@ -139,6 +143,7 @@
 			children = (
 				6610C9CD27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift */,
 				6610C9CF27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift */,
+				6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */,
 			);
 			path = "Shield Knight - The Cursed ArtifactUITests";
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 				66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */,
 				6610C9B727E890AC0076FBB6 /* Assets.xcassets in Resources */,
 				6610C9AE27E890AB0076FBB6 /* Actions.sks in Resources */,
+				665B14B127FDA23100D9B42A /* BatDeath.sks in Resources */,
 				660161F227F8366200B59074 /* CurshieldKnight.mp3 in Resources */,
 				66411EE927FC52C3000AE2D9 /* GoblinDeath.sks in Resources */,
 			);
@@ -290,7 +296,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6610C9C427E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +305,7 @@
 			files = (
 				6610C9D027E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITestsLaunchTests.swift in Sources */,
 				6610C9CE27E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactUITests.swift in Sources */,
+				665B14B227FDD31700D9B42A /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,7 +447,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = BWUQ8K9QZU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -470,7 +476,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = BWUQ8K9QZU;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

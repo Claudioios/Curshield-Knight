@@ -12,9 +12,11 @@ import AVFoundation
 class GameScene: SKScene, SKPhysicsContactDelegate {
         
     private var GoblinEffect : SKEmitterNode?
+    private var BatEffect : SKEmitterNode?
     
     private var SpawnAction = SKNode()
     
+    private var PositionCounter = 0
     private var i = 0
     private var EnemyThatSpawned = 0
     private var Points : SKLabelNode?
@@ -91,6 +93,59 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     private var AudioPlayer = AVAudioPlayer()
     
+    func GoblinDeathEffect(GoblinPosition: CGPoint){
+            GoblinEffect = SKEmitterNode(fileNamed: "GoblinDeath.sks")
+            self.addChild(GoblinEffect!)
+        GoblinEffect?.position = GoblinPosition
+    }
+    
+    func BatDeathEffect(BatPosition: CGPoint){
+            BatEffect = SKEmitterNode(fileNamed: "BatDeath.sks")
+            self.addChild(BatEffect!)
+            BatEffect?.position = BatPosition
+    }
+    
+    func MoveRight(ShieldPositionCounter: Int){
+        switch ShieldPositionCounter {
+
+                    case 3:
+                        Shield?.position = CGPoint(x: -35, y: -160)
+                        Shield?.zRotation = 2.61799
+                    case 2:
+                        Shield?.position = CGPoint(x: 0, y: -150)
+                        Shield?.zRotation = 1.5708
+                    case 1:
+                        Shield?.position = CGPoint(x: 35, y: -160)
+                        Shield?.zRotation = 0.523599
+                    case 0:
+                        Shield?.position = CGPoint(x: 40, y: -182.5)
+                        Shield?.zRotation = 0
+
+                    default:
+                        return
+            }
+    }
+    
+    func MoveLeft(ShieldPositionCounter: Int){
+        switch ShieldPositionCounter {
+
+                    case 1:
+                        Shield?.position = CGPoint(x: 35, y: -160)
+                        Shield?.zRotation = 0.523599
+                    case 2:
+                        Shield?.position = CGPoint(x: 0, y: -150)
+                        Shield?.zRotation = 1.5708
+                    case 3:
+                        Shield?.position = CGPoint(x: -35, y: -160)
+                        Shield?.zRotation = 2.61799
+                    case 4:
+                        Shield?.position = CGPoint(x: -40, y: -182.5)
+                        Shield?.zRotation = 3.14159
+
+                    default:
+                        return
+            }
+    }
     func Invulnerability3sec(){
         Invulnerability = true
         Hero?.alpha = 0.0
@@ -450,9 +505,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
-//        GoblinEffect = SKEmitterNode(fileNamed: "GoblinDeath.sks")
-//        self.addChild(GoblinEffect!)
-        
         let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
         AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
         AudioPlayer.prepareToPlay()
@@ -520,7 +572,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.Life3 = self.childNode(withName: "Life3") as? SKSpriteNode
         
         self.Points = self.childNode(withName: "Points") as? SKLabelNode
-        
 //      Gestione Highscore
         let WaitScore = SKAction.wait(forDuration: 2.0)
         let UpdateScore = SKAction.run(
@@ -571,9 +622,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         {
             if (location.x > 0){
                 print("Right Touch")
+                if (PositionCounter != 0){
+                    PositionCounter = PositionCounter - 1
+                }
+                MoveRight(ShieldPositionCounter: PositionCounter)
             }else
             {
                 print("Left Touch")
+                if (PositionCounter != 4){
+                PositionCounter = PositionCounter + 1
+                }
+                MoveLeft(ShieldPositionCounter: PositionCounter)
             }
         }
         let transition = SKTransition.fade(withDuration: 1)
@@ -588,12 +647,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 
-        let curTouch = touches.first
-        let curPoint = curTouch!.location(in: self)
-
-        let angle = atan2((curPoint.x - (Shield?.position.x)!) , -(curPoint.y -
-                          (Shield?.position.y)!))
-         Shield?.zRotation = angle - CGFloat(Double.pi/2)
+//        let curTouch = touches.first
+//        let curPoint = curTouch!.location(in: self)
+//
+//        let angle = atan2((curPoint.x - (Shield?.position.x)!) , -(curPoint.y -
+//                          (Shield?.position.y)!))
+//         Shield?.zRotation = angle - CGFloat(Double.pi/2)
 
     }
     
@@ -605,9 +664,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
-        
-//        GoblinEffect?.position = GoblinRight?.position ?? CGPoint(x: 2000, y: 2000)
-        
+                
         if (IsGameOver == false)
         {
             if (SpawnedBatUp == true)
@@ -784,6 +841,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
                 SpawnedGoblinLeft = false
                 Score = Score + 1000
+                GoblinDeathEffect(GoblinPosition: contact.bodyB.node!.position)
 
             }
             else
@@ -793,6 +851,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
                     SpawnedGoblinRight = false
                     Score = Score + 1000
+                    GoblinDeathEffect(GoblinPosition: contact.bodyB.node!.position)
 
                 }
                 else
@@ -803,6 +862,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         Score = Score + 2000
                         BatLeft?.isHidden = true
                         SpawnedBatLeft = false
+                        BatDeathEffect(BatPosition: BatLeft!.position)
 
                     }
                     else
@@ -816,6 +876,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             {
                                 BatUp?.isHidden = true
                                 SpawnedBatUp = false
+                                BatDeathEffect(BatPosition: BatUp!.position)
                             }
 
 
@@ -827,6 +888,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             Score = Score + 2000
                             BatRight?.isHidden = true
                             SpawnedBatRight = false
+                            BatDeathEffect(BatPosition: BatRight!.position)
 
                         }
                         
@@ -847,6 +909,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
                     SpawnedGoblinLeft = false
                     Score = Score + 1000
+                    GoblinDeathEffect(GoblinPosition: contact.bodyA.node!.position)
 
                 }
                 else
@@ -856,6 +919,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
  
                         SpawnedGoblinRight = false
                         Score = Score + 1000
+                        GoblinDeathEffect(GoblinPosition: contact.bodyA.node!.position)
 
                     }
                     else
@@ -866,6 +930,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             Score = Score + 2000
                             BatLeft?.isHidden = true
                             SpawnedBatLeft = false
+                            BatDeathEffect(BatPosition: BatLeft!.position)
                         }
                         else
                         {
@@ -878,7 +943,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 {
                                     BatUp?.isHidden = true
                                     SpawnedBatUp = false
-
+                                    BatDeathEffect(BatPosition: BatUp!.position)
                                 }
                             }
                             else
@@ -887,6 +952,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 Score = Score + 2000
                                 BatRight?.isHidden = true
                                 SpawnedBatRight = false
+                                BatDeathEffect(BatPosition: BatRight!.position)
 
                             }
                             
