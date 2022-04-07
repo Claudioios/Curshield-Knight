@@ -547,16 +547,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.HUD?.position = CGPoint(x: 0, y: self.frame.height*0.33)
         
         self.Hero = self.childNode(withName: "Hero") as? SKSpriteNode
-        Hero?.physicsBody!.contactTestBitMask = (Hero?.physicsBody!.collisionBitMask)!
+        Hero?.physicsBody?.categoryBitMask = 00000001
+        Hero?.physicsBody!.contactTestBitMask = 00000001
+        Hero?.physicsBody!.collisionBitMask = 00000001
+        
         
         EndlessWalk()
 
         self.Shield = self.childNode(withName: "Shield") as? SKSpriteNode
-        Shield?.physicsBody!.contactTestBitMask = (Shield?.physicsBody!.collisionBitMask)!
+        Shield?.physicsBody?.categoryBitMask = 00000010
+        Shield?.physicsBody!.contactTestBitMask = 00000010
+        Shield?.physicsBody!.collisionBitMask = 00000010
         
-        let Joint = SKPhysicsJointPin.joint(withBodyA: Hero!.physicsBody!, bodyB: Shield!.physicsBody!, anchor: Hero!.position)
-        
-        self.physicsWorld.add(Joint)
+//        let Joint = SKPhysicsJointPin.joint(withBodyA: Hero!.physicsBody!, bodyB: Shield!.physicsBody!, anchor: Hero!.position)
+//
+//        self.physicsWorld.add(Joint)
 
         //        BatUpEndlessFly()
         self.BackgroundGameOver = self.childNode(withName: "BackgroundGameOver") as? SKSpriteNode
@@ -783,12 +788,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 
             }
             
-            contact.bodyB.node?.removeFromParent()
-            if (Invulnerability == false)
-            {
-            Life = Life - 1
-            Invulnerability3sec()
-            }
+                contact.bodyB.node?.removeFromParent()
+                if (Invulnerability == false)
+                {
+                Life = Life - 1
+                Invulnerability3sec()
+                }
+            
             
         } else if contact.bodyB.node?.name == "Hero" {
             if (contact.bodyA.node?.name == "GoblinLeft")
@@ -819,7 +825,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         }
                         else
                         {
-                            ShootRight = false
+                                ShootRight = false
+                            
                         }
                         
                     }
@@ -830,9 +837,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             contact.bodyA.node?.removeFromParent()
             if (Invulnerability == false)
             {
-            Life = Life - 1
-            Invulnerability3sec()
+                Life = Life - 1
+                Invulnerability3sec()
             }
+            
         
         }
         if contact.bodyA.node?.name == "Shield" {
@@ -878,18 +886,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                                 SpawnedBatUp = false
                                 BatDeathEffect(BatPosition: BatUp!.position)
                             }
-
-
-
                         }
                         else
                         {
-                            ShootRight = false
-                            Score = Score + 2000
-                            BatRight?.isHidden = true
-                            SpawnedBatRight = false
-                            BatDeathEffect(BatPosition: BatRight!.position)
-
+                        
+                                ShootRight = false
+                                Score = Score + 2000
+                                BatRight?.isHidden = true
+                                SpawnedBatRight = false
+                                BatDeathEffect(BatPosition: BatRight!.position)
+                            
                         }
                         
                     }
@@ -948,11 +954,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             }
                             else
                             {
-                                ShootRight = false
-                                Score = Score + 2000
-                                BatRight?.isHidden = true
-                                SpawnedBatRight = false
-                                BatDeathEffect(BatPosition: BatRight!.position)
+                        
+                                    ShootRight = false
+                                    Score = Score + 2000
+                                    BatRight?.isHidden = true
+                                    SpawnedBatRight = false
+                                    BatDeathEffect(BatPosition: BatRight!.position)
 
                             }
                             
@@ -962,7 +969,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 }
                 
                 contact.bodyA.node?.removeFromParent()
-
+                
             }
         }
     }
