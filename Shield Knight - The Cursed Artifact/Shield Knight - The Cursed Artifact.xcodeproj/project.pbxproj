@@ -19,6 +19,7 @@
 		66411EE927FC52C3000AE2D9 /* GoblinDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */; };
 		665B14B127FDA23100D9B42A /* BatDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 665B14B027FDA23000D9B42A /* BatDeath.sks */; };
 		665B14B227FDD31700D9B42A /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */; };
+		6671288C27FF59020040F2BB /* nokiafc22.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 663EDC6627FEF55000F157F8 /* nokiafc22.ttf */; };
 		66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB127EB3BAD00DD24B7 /* Main.storyboard */; };
 		66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */; };
 		66A4719B27E9EB3A00ACB3BA /* StartMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */; };
@@ -59,6 +60,7 @@
 		663EDC6627FEF55000F157F8 /* nokiafc22.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nokiafc22.ttf; sourceTree = "<group>"; };
 		66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GoblinDeath.sks; sourceTree = "<group>"; };
 		665B14B027FDA23000D9B42A /* BatDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BatDeath.sks; sourceTree = "<group>"; };
+		6671288B27FF562A0040F2BB /* Shield-Knight---The-Cursed-Artifact-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Shield-Knight---The-Cursed-Artifact-Info.plist"; sourceTree = SOURCE_ROOT; };
 		66973BB127EB3BAD00DD24B7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartMenu.swift; sourceTree = "<group>"; };
@@ -113,6 +115,7 @@
 		6610C9A827E890AB0076FBB6 /* Shield Knight - The Cursed Artifact */ = {
 			isa = PBXGroup;
 			children = (
+				6671288B27FF562A0040F2BB /* Shield-Knight---The-Cursed-Artifact-Info.plist */,
 				6610C9A927E890AB0076FBB6 /* AppDelegate.swift */,
 				6610C9AB27E890AB0076FBB6 /* GameScene.sks */,
 				6610C9AD27E890AB0076FBB6 /* Actions.sks */,
@@ -256,6 +259,7 @@
 				6610C9AC27E890AB0076FBB6 /* GameScene.sks in Resources */,
 				66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */,
 				66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */,
+				6671288C27FF59020040F2BB /* nokiafc22.ttf in Resources */,
 				6610C9B727E890AC0076FBB6 /* Assets.xcassets in Resources */,
 				6610C9AE27E890AB0076FBB6 /* Actions.sks in Resources */,
 				665B14B127FDA23100D9B42A /* BatDeath.sks in Resources */,
@@ -447,9 +451,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = BWUQ8K9QZU;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shield-Knight---The-Cursed-Artifact-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -476,9 +481,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 8;
 				DEVELOPMENT_TEAM = BWUQ8K9QZU;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Shield-Knight---The-Cursed-Artifact-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;

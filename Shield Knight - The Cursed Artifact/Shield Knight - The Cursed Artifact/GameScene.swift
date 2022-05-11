@@ -10,7 +10,18 @@ import GameplayKit
 import AVFoundation
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-        
+    
+
+    
+    private var Trait : SKSpriteNode?
+    private var LeftTutorial : SKSpriteNode?
+    private var RightTutorial : SKSpriteNode?
+    
+    private var RightTutorialAnimation: [SKTexture] = []
+    private var LeftTutorialAnimation: [SKTexture] = []
+    private var RightTutorialGif: SKAction?
+    private var LeftTutorialGif: SKAction?
+    
     private var GoblinEffect : SKEmitterNode?
     private var BatEffect : SKEmitterNode?
     
@@ -21,6 +32,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var EnemyThatSpawned = 0
     private var Points : SKLabelNode?
     private var Score : Int = 0
+    let highScore  = UserDefaults.standard.integer(forKey: "highScore")
+
+
     
     private var Hero : SKSpriteNode?
     private var Shield : SKSpriteNode?
@@ -68,6 +82,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var GameOverLabel : SKSpriteNode?
     private var HighScoreGameOver : SKSpriteNode?
     private var PointsGameOver : SKLabelNode?
+    private var TopHighScore : SKLabelNode?
+    private var RecordLabel : SKLabelNode?
+
     
     private var SkyCloud1 : SKSpriteNode?
     private var SkyCloud2 : SKSpriteNode?
@@ -92,6 +109,66 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var BatUpLife : Int = 2
     
     private var AudioPlayer = AVAudioPlayer()
+    
+    func Tutorial(){
+        let WaitTutorial = SKAction.wait(forDuration: 4.0)
+                let CreationTutorial = SKAction.run(
+                {
+                    self.TutorialCreation()
+                }
+                )
+                let DestroyTutorial = SKAction.run(
+                {
+                    self.Trait?.removeFromParent()
+                    self.RightTutorial?.removeFromParent()
+                    self.LeftTutorial?.removeFromParent()
+                }
+                )
+                let TutorialAction = SKAction.sequence([CreationTutorial,WaitTutorial,DestroyTutorial])
+                run(TutorialAction)
+    }
+    
+    func TutorialCreation(){
+        Trait = SKSpriteNode(texture: SKTexture(imageNamed: "Trait"), size: CGSize(width: 5, height: 600))
+        Trait?.name = "Trait"
+        Trait?.position = CGPoint(x: 0, y: 0)
+        addChild(Trait!)
+        
+        LeftTutorial = SKSpriteNode(texture: SKTexture(imageNamed: "LeftTutorial0"), size: CGSize(width: 150, height: 150))
+        LeftTutorial?.name = "LeftTutorial"
+        LeftTutorial?.position = CGPoint(x: -(scene?.size.width)!/4, y: -20)
+        addChild(LeftTutorial!)
+        
+        for i in 0...3 {
+            LeftTutorialAnimation.append(SKTexture(imageNamed: "LeftTutorial\(i)"));
+        }
+        LeftTutorialGif = SKAction.animate(with: LeftTutorialAnimation, timePerFrame: 0.2)
+        LeftTutorial?.run(SKAction.repeatForever(LeftTutorialGif!))
+        
+        RightTutorial = SKSpriteNode(texture: SKTexture(imageNamed: "RightTutorial0"), size: CGSize(width: 150, height: 150))
+        RightTutorial?.name = "RightTutorial"
+        RightTutorial?.position = CGPoint(x: (scene?.size.width)!/4, y: -20)
+        addChild(RightTutorial!)
+        
+        for i in 0...3 {
+            RightTutorialAnimation.append(SKTexture(imageNamed: "RightTutorial\(i)"));
+        }
+        RightTutorialGif = SKAction.animate(with: RightTutorialAnimation, timePerFrame: 0.2)
+        RightTutorial?.run(SKAction.repeatForever(RightTutorialGif!))
+        
+        RightTutorial?.alpha = 1.0
+        LeftTutorial?.alpha = 1.0
+        Trait?.alpha = 1.0
+        
+        let BlinkAcceso = SKAction.fadeAlpha(to: 1.0, duration: 0.5)
+        let BlinkSpento = SKAction.fadeAlpha(to: 0.0, duration: 0.5)
+        let BlinkAction = SKAction.sequence([BlinkSpento,BlinkAcceso])
+        let RepeatAction = SKAction.repeatForever(BlinkAction)
+        RightTutorial?.run(RepeatAction)
+        LeftTutorial?.run(RepeatAction)
+        Trait?.run(RepeatAction)
+
+    }
     
     func GoblinDeathEffect(GoblinPosition: CGPoint){
             GoblinEffect = SKEmitterNode(fileNamed: "GoblinDeath.sks")
@@ -274,6 +351,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func GameOver(){
+        
         IsGameOver = true
         
 //        Grass1?.isPaused = true
@@ -308,9 +386,35 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         HighScoreGameOver?.position = CGPoint(x: -160, y: 0)
 
         PointsGameOver?.zPosition = 4
-        PointsGameOver?.position = CGPoint(x: 250, y: 0)
+        PointsGameOver?.position = CGPoint(x: 200, y: 0)
         PointsGameOver?.text = "\(Score)"
         
+        if(Score > highScore){
+
+            UserDefaults.standard.set(Score, forKey: "highScore")
+            TopHighScore?.zPosition = 4
+            TopHighScore?.position = CGPoint(x: 450, y: 0)
+            TopHighScore?.fontColor = .yellow
+            TopHighScore?.text = "\(Score)"
+            RecordLabel?.zPosition = 4
+            RecordLabel?.fontSize = 28
+            RecordLabel?.position = CGPoint(x: 450, y: -50)
+            RecordLabel?.fontColor = .yellow
+            RecordLabel?.text = "(New Record!)"
+        }
+        else
+        {
+            TopHighScore?.zPosition = 4
+            TopHighScore?.position = CGPoint(x: 450, y: 0)
+            TopHighScore?.fontColor = .yellow
+            TopHighScore?.text = "\(highScore)"
+            RecordLabel?.zPosition = 4
+            RecordLabel?.fontSize = 28
+            RecordLabel?.position = CGPoint(x: 450, y: -50)
+            RecordLabel?.fontColor = .yellow
+            RecordLabel?.text = "(Record)"
+        }
+
         
     }
     
@@ -330,9 +434,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         SpawnAction.speed = 2.5
                         print("Livello 4")
                     case 11...18:
-                        SpawnAction.speed = 5
+                        SpawnAction.speed = 3.5
                         print("Livello 5")
-                    case 19...:
+                    case 19...29:
+                        SpawnAction.speed = 5
+                        print("Livello 6")
+                    case 30...45:
+                        SpawnAction.speed = 7.5
+                        print("Livello 6")
+                    case 46...:
                         SpawnAction.speed = 10
                         print("Livello 6")
 
@@ -342,13 +452,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         EnemyThatSpawned = EnemyThatSpawned + 1
     }
     
-    func NewScore(){
-        if (IsGameOver == false)
-        {
-        Score = Score + 100
-        Points?.text = "\(Score)"
-        }
-    }
+//    func NewScore(){
+//        if (IsGameOver == false)
+//        {
+//        Score = Score + 100
+//        Points?.text = "\(Score)"
+//        }
+//    }
     
     func BatShootLeft(){
         if (ShootLeft == false)
@@ -505,6 +615,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         physicsWorld.contactDelegate = self
         
+        Tutorial()
+        
         let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
         AudioPlayer = try! AVAudioPlayer(contentsOf: AssortedMusics as URL)
         AudioPlayer.prepareToPlay()
@@ -571,22 +683,38 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.GameOverLabel = self.childNode(withName: "GameOver") as? SKSpriteNode
         self.HighScoreGameOver = self.childNode(withName: "HighscoreGameOver") as? SKSpriteNode
         self.PointsGameOver = self.childNode(withName: "PointsGameOver") as? SKLabelNode
+        self.PointsGameOver?.fontName = "NokiaCellphoneFC-Small"
+        self.TopHighScore = self.childNode(withName: "TopHighScore") as? SKLabelNode
+        self.TopHighScore?.fontName = "NokiaCellphoneFC-Small"
+        self.RecordLabel = self.childNode(withName: "RecordLabel") as? SKLabelNode
+        self.RecordLabel?.fontName = "NokiaCellphoneFC-Small"
 
         self.Life1 = self.childNode(withName: "Life1") as? SKSpriteNode
         self.Life2 = self.childNode(withName: "Life2") as? SKSpriteNode
         self.Life3 = self.childNode(withName: "Life3") as? SKSpriteNode
         
-        self.Points = self.childNode(withName: "Points") as? SKLabelNode
+//        self.Points = self.childNode(withName: "Points") as? SKLabelNode
+        self.Points = SKLabelNode(fontNamed: "NokiaCellphoneFC-Small")
+        self.Points?.name = "Points"
+        self.Points?.position = CGPoint(x: 520, y: 250)
+        self.Points?.horizontalAlignmentMode = .center
+        self.Points?.verticalAlignmentMode = .center
+        self.Points?.zPosition = 2
+        self.Points?.fontSize = 40
+        self.Points?.fontColor = SKColor.white
+        self.Points?.text = "\(Score)"
+        addChild(Points!)
+        
 //      Gestione Highscore
-        let WaitScore = SKAction.wait(forDuration: 2.0)
-        let UpdateScore = SKAction.run(
-        {
-            self.NewScore()
-        }
-        )
-        let SeqScore = SKAction.sequence([WaitScore,UpdateScore])
-        let RepeatScore = SKAction.repeatForever(SeqScore)
-        run(RepeatScore)
+//        let WaitScore = SKAction.wait(forDuration: 2.0)
+//        let UpdateScore = SKAction.run(
+//        {
+//            self.NewScore()
+//        }
+//        )
+//        let SeqScore = SKAction.sequence([WaitScore,UpdateScore])
+//        let RepeatScore = SKAction.repeatForever(SeqScore)
+//        run(RepeatScore)
         
         
 //      Gestione Spawn Nemici
@@ -626,14 +754,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (IsGameOver == false)
         {
             if (location.x > 0){
-                print("Right Touch")
                 if (PositionCounter != 0){
                     PositionCounter = PositionCounter - 1
                 }
                 MoveRight(ShieldPositionCounter: PositionCounter)
             }else
             {
-                print("Left Touch")
                 if (PositionCounter != 4){
                 PositionCounter = PositionCounter + 1
                 }
@@ -669,7 +795,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func update(_ currentTime: TimeInterval) {
-                
+               
+        Points?.text = "\(Score)"
+        
         if (IsGameOver == false)
         {
             if (SpawnedBatUp == true)
@@ -848,7 +976,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
 
                 SpawnedGoblinLeft = false
-                Score = Score + 1000
+                Score = Score + 100
                 GoblinDeathEffect(GoblinPosition: contact.bodyB.node!.position)
 
             }
@@ -858,7 +986,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 {
 
                     SpawnedGoblinRight = false
-                    Score = Score + 1000
+                    Score = Score + 100
                     GoblinDeathEffect(GoblinPosition: contact.bodyB.node!.position)
 
                 }
@@ -867,7 +995,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     if (contact.bodyB.node?.name == "ProjectileLeft")
                     {
                         ShootLeft = false
-                        Score = Score + 2000
+                        Score = Score + 150
                         BatLeft?.isHidden = true
                         SpawnedBatLeft = false
                         BatDeathEffect(BatPosition: BatLeft!.position)
@@ -878,10 +1006,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         if (contact.bodyB.node?.name == "ProjectileUp")
                         {
                             ShootUp = false
-                            Score = Score + 2000
                             BatUpLife = BatUpLife - 1
                             if (BatUpLife == 0)
                             {
+                                Score = Score + 300
                                 BatUp?.isHidden = true
                                 SpawnedBatUp = false
                                 BatDeathEffect(BatPosition: BatUp!.position)
@@ -891,7 +1019,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         {
                         
                                 ShootRight = false
-                                Score = Score + 2000
+                                Score = Score + 150
                                 BatRight?.isHidden = true
                                 SpawnedBatRight = false
                                 BatDeathEffect(BatPosition: BatRight!.position)
@@ -914,7 +1042,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 {
 
                     SpawnedGoblinLeft = false
-                    Score = Score + 1000
+                    Score = Score + 100
                     GoblinDeathEffect(GoblinPosition: contact.bodyA.node!.position)
 
                 }
@@ -924,7 +1052,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     {
  
                         SpawnedGoblinRight = false
-                        Score = Score + 1000
+                        Score = Score + 100
                         GoblinDeathEffect(GoblinPosition: contact.bodyA.node!.position)
 
                     }
@@ -933,7 +1061,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                         if (contact.bodyA.node?.name == "ProjectileLeft")
                         {
                             ShootLeft = false
-                            Score = Score + 2000
+                            Score = Score + 150
                             BatLeft?.isHidden = true
                             SpawnedBatLeft = false
                             BatDeathEffect(BatPosition: BatLeft!.position)
@@ -943,10 +1071,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             if (contact.bodyA.node?.name == "ProjectileUp")
                             {
                                 ShootUp = false
-                                Score = Score + 2000
                                 BatUpLife = BatUpLife - 1
                                 if (BatUpLife == 0)
                                 {
+                                    Score = Score + 300
                                     BatUp?.isHidden = true
                                     SpawnedBatUp = false
                                     BatDeathEffect(BatPosition: BatUp!.position)
@@ -956,7 +1084,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                             {
                         
                                     ShootRight = false
-                                    Score = Score + 2000
+                                    Score = Score + 150
                                     BatRight?.isHidden = true
                                     SpawnedBatRight = false
                                     BatDeathEffect(BatPosition: BatRight!.position)
