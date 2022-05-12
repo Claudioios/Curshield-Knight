@@ -14,8 +14,8 @@
             filePath = "Shield Knight - The Cursed Artifact/GameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "348"
-            endingLineNumber = "348"
+            startingLineNumber = "351"
+            endingLineNumber = "351"
             landmarkName = "TreeParallax()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,10 +30,10 @@
             filePath = "Shield Knight - The Cursed Artifact/GameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "GameScene"
-            landmarkType = "3">
+            startingLineNumber = "115"
+            endingLineNumber = "115"
+            landmarkName = "AudioPlayer"
+            landmarkType = "24">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -46,9 +46,9 @@
             filePath = "Shield Knight - The Cursed Artifact/GameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
-            landmarkName = "Invulnerability3sec()"
+            startingLineNumber = "229"
+            endingLineNumber = "229"
+            landmarkName = "MoveLeft(ShieldPositionCounter:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,8 +62,8 @@
             filePath = "Shield Knight - The Cursed Artifact/GameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "227"
-            endingLineNumber = "227"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
             landmarkName = "Invulnerability3sec()"
             landmarkType = "7">
          </BreakpointContent>

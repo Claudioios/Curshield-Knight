@@ -103,6 +103,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var Life1 : SKSpriteNode?
     private var Life2 : SKSpriteNode?
     private var Life3 : SKSpriteNode?
+    private var HeroFace : SKSpriteNode?
+    private var Highscore : SKSpriteNode?
+
 
     private var RandomSpawn : Int = 0
     private var Life : Int = 3
@@ -656,7 +659,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.HUD = self.childNode(withName: "HUD") as? SKSpriteNode
         self.HUD?.zPosition = 1
         self.HUD?.size = CGSize(width: self.frame.width, height: self.frame.height/6)
-        self.HUD?.position = CGPoint(x: 0, y: self.frame.height*0.33)
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.HUD?.position = CGPoint(x: 0, y: 375 - HUD!.size.height/2)
+        }
+        else
+        {
+            self.HUD?.position = CGPoint(x: 0, y: self.frame.height*0.33)
+
+        }
         
         self.Hero = self.childNode(withName: "Hero") as? SKSpriteNode
         Hero?.physicsBody?.categoryBitMask = 00000001
@@ -689,9 +699,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.RecordLabel = self.childNode(withName: "RecordLabel") as? SKLabelNode
         self.RecordLabel?.fontName = "NokiaCellphoneFC-Small"
 
+        
+        self.HeroFace = self.childNode(withName: "HeroFace") as? SKSpriteNode
+        self.Highscore = self.childNode(withName: "Highscore") as? SKSpriteNode
         self.Life1 = self.childNode(withName: "Life1") as? SKSpriteNode
         self.Life2 = self.childNode(withName: "Life2") as? SKSpriteNode
         self.Life3 = self.childNode(withName: "Life3") as? SKSpriteNode
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.Life1?.position.y = (HUD?.position.y)!
+            self.Life2?.position.y = (HUD?.position.y)!
+            self.Life3?.position.y = (HUD?.position.y)!
+            self.Points?.position = CGPoint(x: 520, y: (HUD?.position.y)!)
+            self.HeroFace?.position.y = (HUD?.position.y)!
+            self.Highscore?.position.y = (HUD?.position.y)!
+        }
         
 //        self.Points = self.childNode(withName: "Points") as? SKLabelNode
         self.Points = SKLabelNode(fontNamed: "NokiaCellphoneFC-Small")
@@ -703,6 +724,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.Points?.fontSize = 40
         self.Points?.fontColor = SKColor.white
         self.Points?.text = "\(Score)"
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            self.Points?.position = CGPoint(x: 520, y: (HUD?.position.y)!)
+        }
+        else
+        {
+            self.Points?.position = CGPoint(x: 520, y: 250)
+        }
         addChild(Points!)
         
 //      Gestione Highscore
@@ -770,7 +798,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if (node!.name == RetryButton?.name!) {
             AudioPlayer.stop()
             let scene = SKScene(fileNamed: "GameScene")
-            scene?.scaleMode = .aspectFill
+            if UIDevice.current.userInterfaceIdiom == .pad {
+                scene?.scaleMode = .aspectFit
+            }
+            else
+            {
+                scene?.scaleMode = .aspectFill
+
+            }
             self.view?.presentScene(scene!,transition: transition)
         }
         //        for t in touches { self.touchDown(atPoint: t.location(in: self)) }

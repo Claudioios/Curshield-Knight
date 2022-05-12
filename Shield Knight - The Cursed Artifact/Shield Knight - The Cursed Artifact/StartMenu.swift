@@ -35,7 +35,14 @@ class StartMenu: SKScene {
         let transition = SKTransition.fade(withDuration: 1)
 
         let scene = SKScene(fileNamed: "GameScene")
-        scene?.scaleMode = .aspectFill
+        if UIDevice.current.userInterfaceIdiom == .pad {
+            scene?.scaleMode = .aspectFit
+        }
+        else
+        {
+            scene?.scaleMode = .aspectFill
+
+        }
         self.view?.presentScene(scene!,transition: transition)
 
         

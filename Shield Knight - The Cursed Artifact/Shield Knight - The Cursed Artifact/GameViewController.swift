@@ -28,8 +28,14 @@ class GameViewController: UIViewController {
             // Load the SKScene from 'GameScene.sks'
             if let scene = SKScene(fileNamed: "StartMenu") {
                 // Set the scale mode to scale to fit the window
-                scene.scaleMode = .aspectFill
-                
+                if UIDevice.current.userInterfaceIdiom == .pad {
+                    scene.scaleMode = .aspectFit
+                }
+                else
+                {
+                    scene.scaleMode = .aspectFill
+
+                }
                 // Present the scene
                 view.presentScene(scene)
             }
