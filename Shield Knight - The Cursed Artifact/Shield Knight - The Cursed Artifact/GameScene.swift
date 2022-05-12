@@ -90,6 +90,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var SkyCloud2 : SKSpriteNode?
     private var Grass1 : SKSpriteNode?
     private var Grass2 : SKSpriteNode?
+    private var Grass1B : SKSpriteNode?
+    private var Grass2B : SKSpriteNode?
     private var Home1 : SKSpriteNode?
     private var Home2 : SKSpriteNode?
     private var Mount1 : SKSpriteNode?
@@ -302,6 +304,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         Grass1?.run(moveForever)
         Grass2?.run(moveForever)
+        Grass1B?.run(moveForever)
+        Grass2B?.run(moveForever)
         
     }
     
@@ -633,6 +637,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.Grass1 = self.childNode(withName: "Grass") as? SKSpriteNode
         self.Grass2 = self.childNode(withName: "Grass2") as? SKSpriteNode
+        self.Grass1B = self.childNode(withName: "GrassB") as? SKSpriteNode
+        self.Grass2B = self.childNode(withName: "Grass2B") as? SKSpriteNode
+
         
         GrassParallax()
         
