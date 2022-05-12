@@ -32,8 +32,8 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
             endingLineNumber = "115"
-            landmarkName = "AudioPlayer"
-            landmarkType = "24">
+            landmarkName = "GameScene"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -48,7 +48,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "229"
             endingLineNumber = "229"
-            landmarkName = "MoveLeft(ShieldPositionCounter:)"
+            landmarkName = "Invulnerability3sec()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
