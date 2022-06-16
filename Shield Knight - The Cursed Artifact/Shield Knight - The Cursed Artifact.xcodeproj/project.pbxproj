@@ -97,6 +97,7 @@
 			children = (
 				6610C9A827E890AB0076FBB6 /* Shield Knight - The Cursed Artifact */,
 				6610C9C227E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactTests */,
+				665B14B027FDA23000D9B42A /* BatDeath.sks */,
 				6610C9CC27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests */,
 				6610C9A727E890AB0076FBB6 /* Products */,
 			);
@@ -122,7 +123,6 @@
 				6610C9AF27E890AB0076FBB6 /* GameScene.swift */,
 				6610C9B127E890AB0076FBB6 /* GameViewController.swift */,
 				66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */,
-				665B14B027FDA23000D9B42A /* BatDeath.sks */,
 				66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */,
 				66A4719C27E9EC1A00ACB3BA /* StartMenu.sks */,
 				66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */,
