@@ -9,8 +9,10 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import AVFoundation
+import GameKit
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, GKGameCenterControllerDelegate{
+    
 
 //    var AudioPlayer = AVAudioPlayer()
 
@@ -23,6 +25,8 @@ class GameViewController: UIViewController {
 //        AudioPlayer.prepareToPlay()
 //        AudioPlayer.numberOfLoops = -1
 //        AudioPlayer.play()
+        GameCenterHelper.sharedInstance().viewDelegate = self
+        GameCenterHelper.sharedInstance().authenticateLocalPlayer()
         
         if let view = self.view as! SKView? {
             // Load the SKScene from 'GameScene.sks'
@@ -46,7 +50,7 @@ class GameViewController: UIViewController {
 //            view.showsNodeCount = true
         }
     }
-
+    
     override var shouldAutorotate: Bool {
         return true
     }
@@ -62,4 +66,9 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
+    func gameCenterViewControllerDidFinish(_ gameCenterViewController: GKGameCenterViewController) {
+        gameCenterViewController.dismiss(animated: true, completion: nil)
+    }
+    
 }

@@ -8,10 +8,11 @@
 import SpriteKit
 import GameplayKit
 import AVFoundation
+import GameKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
-
+    let gcHelper = GameCenterHelper.sharedInstance()
     
     private var Trait : SKSpriteNode?
     private var LeftTutorial : SKSpriteNode?
@@ -79,6 +80,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     private var IsGameOver : Bool = false
     private var BackgroundGameOver : SKSpriteNode?
     private var RetryButton : SKSpriteNode?
+    private var GameCenterButton : SKSpriteNode?
     private var GameOverLabel : SKSpriteNode?
     private var HighScoreGameOver : SKSpriteNode?
     private var PointsGameOver : SKLabelNode?
@@ -388,6 +390,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         RetryButton?.zPosition = 4
         RetryButton?.position = CGPoint(x: 0, y: -180)
+        
+        GameCenterButton?.zPosition = 4
+        GameCenterButton?.position = CGPoint(x: 450, y: -180)
 
         HighScoreGameOver?.zPosition = 4
         HighScoreGameOver?.position = CGPoint(x: -160, y: 0)
@@ -421,6 +426,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             RecordLabel?.fontColor = .yellow
             RecordLabel?.text = "(Record)"
         }
+
+        gcHelper.submitScore(kind: .score, value: highScore)
 
         
     }
@@ -621,7 +628,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMove(to view: SKView) {
         
         physicsWorld.contactDelegate = self
-        
+                
         Tutorial()
         
         let AssortedMusics = NSURL(fileURLWithPath: Bundle.main.path(forResource: "CurshieldKnight", ofType: "mp3")!)
@@ -697,6 +704,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.BackgroundGameOver?.isHidden = true
         
         self.RetryButton = self.childNode(withName: "RetryButton") as? SKSpriteNode
+        self.GameCenterButton = self.childNode(withName: "GameCenterButton") as? SKSpriteNode
         self.GameOverLabel = self.childNode(withName: "GameOver") as? SKSpriteNode
         self.HighScoreGameOver = self.childNode(withName: "HighscoreGameOver") as? SKSpriteNode
         self.PointsGameOver = self.childNode(withName: "PointsGameOver") as? SKLabelNode
@@ -801,7 +809,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 MoveLeft(ShieldPositionCounter: PositionCounter)
             }
         }
+        
         let transition = SKTransition.fade(withDuration: 1)
+        
         if (node!.name == RetryButton?.name!) {
             AudioPlayer.stop()
             let scene = SKScene(fileNamed: "GameScene")
@@ -815,6 +825,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             self.view?.presentScene(scene!,transition: transition)
         }
+        
+        if (node!.name == GameCenterButton?.name!) {
+            gcHelper.showDefaultLeaderboard()
+        }
+        
+
         //        for t in touches { self.touchDown(atPoint: t.location(in: self)) }
     }
     
@@ -963,6 +979,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 {
                 Life = Life - 1
                 Invulnerability3sec()
+                    EnemyThatSpawned = EnemyThatSpawned / 3
                 }
             
             
@@ -1009,6 +1026,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             {
                 Life = Life - 1
                 Invulnerability3sec()
+                EnemyThatSpawned = EnemyThatSpawned / 3
+
             }
             
         

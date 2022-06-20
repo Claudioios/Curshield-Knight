@@ -19,6 +19,8 @@
 		66411EE927FC52C3000AE2D9 /* GoblinDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */; };
 		665B14B127FDA23100D9B42A /* BatDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = 665B14B027FDA23000D9B42A /* BatDeath.sks */; };
 		665B14B227FDD31700D9B42A /* Shield_Knight___The_Cursed_ArtifactTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */; };
+		66645E022860758E00207400 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66645E012860758E00207400 /* GameKit.framework */; };
+		66645E04286077C800207400 /* GameCenterHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66645E03286077C800207400 /* GameCenterHelper.swift */; };
 		6671288C27FF59020040F2BB /* nokiafc22.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 663EDC6627FEF55000F157F8 /* nokiafc22.ttf */; };
 		66973BB227EB3BAE00DD24B7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB127EB3BAD00DD24B7 /* Main.storyboard */; };
 		66973BB427EB3BB400DD24B7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */; };
@@ -60,6 +62,8 @@
 		663EDC6627FEF55000F157F8 /* nokiafc22.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = nokiafc22.ttf; sourceTree = "<group>"; };
 		66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GoblinDeath.sks; sourceTree = "<group>"; };
 		665B14B027FDA23000D9B42A /* BatDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = BatDeath.sks; sourceTree = "<group>"; };
+		66645E012860758E00207400 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		66645E03286077C800207400 /* GameCenterHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterHelper.swift; sourceTree = "<group>"; };
 		6671288B27FF562A0040F2BB /* Shield-Knight---The-Cursed-Artifact-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Shield-Knight---The-Cursed-Artifact-Info.plist"; sourceTree = SOURCE_ROOT; };
 		66973BB127EB3BAD00DD24B7 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		66973BB327EB3BB400DD24B7 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -72,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66645E022860758E00207400 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -100,6 +105,7 @@
 				665B14B027FDA23000D9B42A /* BatDeath.sks */,
 				6610C9CC27E890AD0076FBB6 /* Shield Knight - The Cursed ArtifactUITests */,
 				6610C9A727E890AB0076FBB6 /* Products */,
+				66645E002860758E00207400 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +127,7 @@
 				6610C9AB27E890AB0076FBB6 /* GameScene.sks */,
 				6610C9AD27E890AB0076FBB6 /* Actions.sks */,
 				6610C9AF27E890AB0076FBB6 /* GameScene.swift */,
+				66645E03286077C800207400 /* GameCenterHelper.swift */,
 				6610C9B127E890AB0076FBB6 /* GameViewController.swift */,
 				66411EE827FC52C3000AE2D9 /* GoblinDeath.sks */,
 				66A4719A27E9EB3A00ACB3BA /* StartMenu.swift */,
@@ -149,6 +156,14 @@
 				6610C9C327E890AD0076FBB6 /* Shield_Knight___The_Cursed_ArtifactTests.swift */,
 			);
 			path = "Shield Knight - The Cursed ArtifactUITests";
+			sourceTree = "<group>";
+		};
+		66645E002860758E00207400 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66645E012860758E00207400 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -293,6 +308,7 @@
 				66A4719B27E9EB3A00ACB3BA /* StartMenu.swift in Sources */,
 				6610C9B227E890AB0076FBB6 /* GameViewController.swift in Sources */,
 				6610C9AA27E890AB0076FBB6 /* AppDelegate.swift in Sources */,
+				66645E04286077C800207400 /* GameCenterHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -458,6 +474,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
@@ -489,6 +506,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeLeft;
